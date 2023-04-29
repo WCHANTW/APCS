@@ -1,6 +1,8 @@
 public class Top extends ClothingItem {
 
-    public Top()
-    {}
+    public Top( String tDescription, double tPrice)
+    {
+        super( tDescription, tPrice);
+    }
     
 }

@@ -1,7 +1,7 @@
 public class Shoes extends ClothingItem{
     
-    public Shoes()
+    public Shoes( String sDescription, double sPrice)
     {
-        
+        super( sDescription, sPrice);
     }
 }
