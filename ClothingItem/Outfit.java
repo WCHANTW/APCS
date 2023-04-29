@@ -1,33 +1,27 @@
-public class Outfit extends ClothingItem {
-
-    Shoes oShoes;
-    Pants oPants;
-    Top oTop;
-
-    public Outfit(Shoes s, Pants p, Top t)
+public class Outfit extends ClothingItem
+{
+    private Shoes shoes;
+    private Pants pants;
+    private Top top;
+    
+    public Outfit (Shoes ashoes, Pants aPants, Top aTop)
     {
-        oShoes = s;
-        oPants = p;
-        oTop = t;
-    }
-
+        shoes = ashoes;
+        pants = aPants;
+        top = aTop;
+    } 
     public String getDescription()
     {
-        return oShoes.getDescription()+'/'+oPants.getDescription()+'/'+oTop.getDescription()+" outfit";
+        return shoes.getDescription() + "/" + pants.getDescription() + "/" + top.getDescription() + "outfit";
     }
-
     public double getPrice()
     {
-        double oTotal = oShoes.getPrice()+oPants.getPrice()+oTop.getPrice();
-
-        if( oTotal > 100)
-        {
-            oTotal *= 0.75;
-        }
+        if (shoes.getPrice() + pants.getPrice() >=100
+         || shoes.getPrice() + top.getPrice() >=100 
+         || top.getPrice() + pants.getPrice() >=100)
+         return 0.75 * (shoes.getPrice() + pants.getPrice() + top.getPrice());
         else
-        {
-            oTotal *= 0.9;
-        }
-        return oTotal;
+            return 0.90 * (shoes.getPrice() + pants.getPrice() + top.getPrice());
     }
 }
+
